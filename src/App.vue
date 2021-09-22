@@ -45,6 +45,7 @@
       dark
       src="mountains.jpg"
       prominent
+      height = "170"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -60,7 +61,10 @@
           <search /> 
         </v-row>
         <v-row>
-          <v-app-bar-title class="ml-4">Todo App</v-app-bar-title>
+          <v-app-bar-title class="ml-4 text-h4">Todo App</v-app-bar-title>
+        </v-row>
+        <v-row>
+          <live-data-time />  
         </v-row>
       </v-container>
 
@@ -89,6 +93,7 @@ import Snackbar from './components/Shared/Snackbar.vue'
     }),
     components: {
       'snackbar': require('@/components/Shared/Snackbar.vue').default,
+      'live-data-time': require('@/components/Tools/LiveDateTime.vue').default,
       'search': require('@/components/Tools/Search.vue').default
 
     }
