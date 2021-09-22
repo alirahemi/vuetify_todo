@@ -2,13 +2,14 @@
   <v-snackbar
       v-model="$store.state.snackbar.show"
     >
-      {{ $store.state.snackbar.text }}
+      <div class="ml-4">{{ $store.state.snackbar.text }}</div>
 
       <template v-slot:action="{ attrs }">
         <v-btn
           @click="$store.commit('hideSnackbar')"
           text
           v-bind="attrs"
+          class="mr-4"
         >
           Close
         </v-btn>
