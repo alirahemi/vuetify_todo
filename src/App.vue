@@ -67,17 +67,12 @@
           <search /> 
         </v-row>
         <v-row>
-          <v-app-bar-title class="ml-4 text-h5">Todo App</v-app-bar-title>
+          <v-app-bar-title class="ml-4 text-h5">{{$store.state.appTitle}}</v-app-bar-title>
         </v-row>
         <v-row>
           <live-data-time />  
         </v-row>
       </v-container>
-
-
-
-
-
     </v-app-bar>
 
     <v-main>
