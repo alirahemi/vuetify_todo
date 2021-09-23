@@ -3,20 +3,26 @@
 
     <v-navigation-drawer 
       v-model="drawer"
+      :mobile-breakpoint="768"
       app
     >
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            Vuetify Todo
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            Best Todo Ever!
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
 
-      <v-divider></v-divider>
+      <v-img
+        class="pa-4"
+        src="mountains.jpg"
+        height="140"
+        gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+
+      >
+        <v-avatar size="70">
+          <img
+            src="ali.jpg"
+            alt="Ali Rahemi"
+          >
+        </v-avatar>
+        <div class="white--text text-subtitle-1 font-weight-bold">Ali Rahemi</div>
+        <div class="white--text text-subtitle-2"><v-icon class="yellow--text">mdi-instagram</v-icon> ali.dev.germany</div>
+      </v-img>
 
       <v-list
         dense
@@ -45,7 +51,7 @@
       dark
       src="mountains.jpg"
       prominent
-      height = "170"
+      height = "140"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -54,14 +60,14 @@
         ></v-img>
       </template>
 
-      <v-container class="pa-0">
+      <v-container class="header-container pa-0">
         <v-row>
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
           <v-spacer></v-spacer>
           <search /> 
         </v-row>
         <v-row>
-          <v-app-bar-title class="ml-4 text-h4">Todo App</v-app-bar-title>
+          <v-app-bar-title class="ml-4 text-h5">Todo App</v-app-bar-title>
         </v-row>
         <v-row>
           <live-data-time />  
@@ -83,7 +89,6 @@
 </template>
 
 <script>
-import Snackbar from './components/Shared/Snackbar.vue'
   export default {
     data: () => ({ drawer: null,
       items: [
@@ -99,3 +104,8 @@ import Snackbar from './components/Shared/Snackbar.vue'
     }
   }
 </script>
+
+<style lang="sass">
+  .header-container
+    max-width: none !important
+</style>
