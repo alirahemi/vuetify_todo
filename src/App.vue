@@ -10,7 +10,7 @@
       <v-img
         class="pa-4"
         src="mountains.jpg"
-        height="140"
+        :height = "$route.path === '/' ? 200 : 140"
         gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
 
       >
@@ -20,7 +20,7 @@
             alt="Ali Rahemi"
           >
         </v-avatar>
-        <div class="white--text text-subtitle-1 font-weight-bold">Ali Rahemi</div>
+        <div class="white--text text-subtitle-1 font-weight-bold" :class="$route.path === '/' ? 'mt-2' : ''">Ali Rahemi</div>
         <div class="white--text text-subtitle-2"><v-icon class="yellow--text">mdi-instagram</v-icon> ali.dev.germany</div>
       </v-img>
 
@@ -51,12 +51,12 @@
       dark
       src="mountains.jpg"
       prominent
-      height = "140"
+      :height = "$route.path === '/' ? 200 : 140"
     >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
-          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+          gradient="to top right, rgba(19,84,122,.9), rgba(128,208,199,.8)"
         ></v-img>
       </template>
 
@@ -71,6 +71,9 @@
         </v-row>
         <v-row>
           <live-data-time />  
+        </v-row>
+        <v-row v-if="$route.path ==='/'">
+          <field-add-task />
         </v-row>
       </v-container>
     </v-app-bar>
@@ -91,9 +94,13 @@
           { title: 'About', icon: 'mdi-help-box', to:'/about' },
         ],
     }),
+    mounted(){
+      this.$store.dispatch('getTasks')
+    },
     components: {
       'snackbar': require('@/components/Shared/Snackbar.vue').default,
       'live-data-time': require('@/components/Tools/LiveDateTime.vue').default,
+      'field-add-task': require('@/components/Todo/FieldAddTask.vue').default,
       'search': require('@/components/Tools/Search.vue').default
 
     }
